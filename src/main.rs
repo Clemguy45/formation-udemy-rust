@@ -34,6 +34,39 @@ fn main() {
     let binaire = 0b1011001;
     println!("mon binaire : {}", binaire);
 
+    //notation supplémentaire des entier :
+    let notation = 23u8;
+    println!("autre notation : {}", notation);
+    println!("Bravo vous avez complété le chap 10");
 
+    //la Mutbilité. Udemy Chap 11
+    let mut a = 23;
+    println!("première variable mutable avant mutation : {}", a);
+    a = 48;
+    println!("Ma première variable mutable après mutation : {}", a);
+    println!("Bravo vous avez complété le chap 11");
+
+    // Convertir une valeur, le casting. Udemy Chap 12
+    let b : u16 = 23u8 as u16;
+    println!("{}", b);
+    // Attention le cast marche qu'avec les type compatible.
+    // Il n'arrondit pas mais il tronc
+    println!("Bravo vous avez complété le chap 12");
+
+    // Les constantes. Udemy Chap 13
+    let c = 89; // la variable prends de la place en mémoire a compilation
+    const MA_CONSTANTE : f32 = 3.14; // code en dure ça valeur
+    // a la compilation la constante n'existe plus en on finis avec println!({}-{},c,3.14)
+    println!("{}-{}",c, MA_CONSTANTE);
+    println!("Bravo vous avez complété le chap 13");
+
+    //Autre type et arithmétque de base. Udemy Chap 14
+    let d = 23f32+25.34;
+    println!("La somme de 23 + 25.34 = {}", d);
+    let boolean : bool = true;
+    // peut etre false.
+    let charactere : char = 'a';
+    // encodé sur 32 bit pour prendre des accétuation de les emojis
+    println!("Bravo vous avez complété le chap 14");
 
 }
