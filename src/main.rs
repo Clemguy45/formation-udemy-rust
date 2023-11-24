@@ -1,3 +1,15 @@
+use crate::chap17udemy::{clonage, owner_ship, scop};
+use crate::chap22a24udemy::{conditionnel, get_result_conditionnel};
+use crate::chap25a27udemy::{binding, match_binding, matching};
+use crate::chap28a30udemy::{bowrowing, pointer_mutable};
+use crate::chap31a36udemy::{arrays, hashmap, slice, tuplet, vector};
+
+mod chap17udemy;
+mod chap22a24udemy;
+mod chap25a27udemy;
+mod chap28a30udemy;
+mod chap31a36udemy;
+
 fn main() {
     //Ma première variable. Udemy Chap 8.
     let ma_variable = 12;
@@ -67,6 +79,45 @@ fn main() {
     // peut etre false.
     let charactere : char = 'a';
     // encodé sur 32 bit pour prendre des accétuation de les emojis
+    println!("Boolean : {}", boolean);
+    println!("character : {}", charactere);
     println!("Bravo vous avez complété le chap 14");
 
+    //Les chaine de character. Udemy Chap 15
+    let s = "Ma chaine de caractère"; // Immutable
+    let mut s2 : String  = String::from("Une autre chaine de caractères"); // Mutable
+    s2.push_str(" plus long");
+    println!("{} \n{}",s,s2);
+    println!("Bravo vous avez complété le chap 15");
+
+    //Le shadowing. Udemy Chap 16.
+    let i : u16 = 256;
+    let i = i.to_string(); //le changement a été effectuer et a écrasée la précédente
+    println!("{}",i);
+    println!("Bravo vous avez complété le chap 16");
+
+    //Ownership. Udemy chap 17 a 21
+    owner_ship();
+    clonage();
+    scop();
+
+    //Structures conditionnelles. Udemy Chap 22 a 24.
+    conditionnel();
+    get_result_conditionnel();
+
+    //Pattern Matching. Udemy Chap 25 a 27
+    matching();
+    binding();
+    match_binding();
+
+    //Les référence. Udemy Chap 28 a 30
+    bowrowing();
+    pointer_mutable();
+
+    //Les collections. Udemy Chap 31 à 36
+    arrays();
+    slice();
+    tuplet();
+    vector();
+    hashmap();
 }
