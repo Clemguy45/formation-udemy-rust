@@ -42,5 +42,9 @@ pub fn vector(){
 }
 
 pub fn hashmap(){
-
+    let mut a = HashMap::new();
+    a.insert(1,"voleur");
+    a.insert(2, "magicien");
+    println!("{:?}",a);
+    println!("{:?}", a.get(&2));
 }
