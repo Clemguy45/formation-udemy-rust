@@ -1,18 +1,15 @@
-use crate::chap17udemy::{clonage, owner_ship, scop};
-use crate::chap22a24udemy::{conditionnel, get_result_conditionnel};
-use crate::chap25a27udemy::{binding, match_binding, matching};
-use crate::chap28a30udemy::{bowrowing, pointer_mutable};
-use crate::chap31a36udemy::{arrays, hashmap, slice, tuplet, vector};
-use crate::chap37a39udemy::{forloop, labelloop, whileloop};
-use crate::chap40a45udemy::{addition, modification, say, say2, say3};
+mod mon_module;
 
-mod chap17udemy;
-mod chap22a24udemy;
-mod chap25a27udemy;
-mod chap28a30udemy;
-mod chap31a36udemy;
-mod chap37a39udemy;
-mod chap40a45udemy;
+use crate::mon_module::chap17udemy::{clonage, owner_ship, scop};
+use crate::mon_module::chap22a24udemy::{conditionnel, get_result_conditionnel};
+use crate::mon_module::chap25a27udemy::{binding, match_binding, matching};
+use crate::mon_module::chap28a30udemy::{bowrowing, pointer_mutable};
+use crate::mon_module::chap31a36udemy::{arrays, hashmap, slice, tuplet, vector};
+use crate::mon_module::chap37a39udemy::{forloop, labelloop, whileloop};
+use crate::mon_module::chap40a45udemy::{addition, modification, say, say2, say3};
+
+extern crate rand;
+use rand::prelude::*;
 
 fn main() {
     //Ma première variable. Udemy Chap 8.
@@ -146,4 +143,7 @@ fn main() {
     let mut n = 5;
     modification(&mut n);
     println!("{}",n);
+
+    //Modularité. Udemy Chap 46 et 47
+    println!("{}", random::<i8>());
 }
