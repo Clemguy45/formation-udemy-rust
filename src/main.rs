@@ -3,12 +3,14 @@ use crate::chap22a24udemy::{conditionnel, get_result_conditionnel};
 use crate::chap25a27udemy::{binding, match_binding, matching};
 use crate::chap28a30udemy::{bowrowing, pointer_mutable};
 use crate::chap31a36udemy::{arrays, hashmap, slice, tuplet, vector};
+use crate::chap37a39udemy::{forloop, labelloop, whileloop};
 
 mod chap17udemy;
 mod chap22a24udemy;
 mod chap25a27udemy;
 mod chap28a30udemy;
 mod chap31a36udemy;
+mod chap37a39udemy;
 
 fn main() {
     //Ma première variable. Udemy Chap 8.
@@ -120,4 +122,9 @@ fn main() {
     tuplet();
     vector();
     hashmap();
+
+    // Les boucles. Udemy Chap 37 à 39
+    whileloop();
+    forloop();
+    labelloop();
 }
