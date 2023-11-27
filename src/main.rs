@@ -4,6 +4,7 @@ use crate::chap25a27udemy::{binding, match_binding, matching};
 use crate::chap28a30udemy::{bowrowing, pointer_mutable};
 use crate::chap31a36udemy::{arrays, hashmap, slice, tuplet, vector};
 use crate::chap37a39udemy::{forloop, labelloop, whileloop};
+use crate::chap40a45udemy::{addition, modification, say, say2, say3};
 
 mod chap17udemy;
 mod chap22a24udemy;
@@ -11,6 +12,7 @@ mod chap25a27udemy;
 mod chap28a30udemy;
 mod chap31a36udemy;
 mod chap37a39udemy;
+mod chap40a45udemy;
 
 fn main() {
     //Ma première variable. Udemy Chap 8.
@@ -98,21 +100,21 @@ fn main() {
     println!("{}",i);
     println!("Bravo vous avez complété le chap 16");
 
-    //Ownership. Udemy chap 17 a 21
+    //Ownership. Udemy chap 17 à 21
     owner_ship();
     clonage();
     scop();
 
-    //Structures conditionnelles. Udemy Chap 22 a 24.
+    //Structures conditionnelles. Udemy Chap 22 à 24.
     conditionnel();
     get_result_conditionnel();
 
-    //Pattern Matching. Udemy Chap 25 a 27
+    //Pattern Matching. Udemy Chap 25 à 27
     matching();
     binding();
     match_binding();
 
-    //Les référence. Udemy Chap 28 a 30
+    //Les référence. Udemy Chap 28 à 30
     bowrowing();
     pointer_mutable();
 
@@ -127,4 +129,21 @@ fn main() {
     whileloop();
     forloop();
     labelloop();
+
+    //les fonctions. Udemy Chap 40 à 45
+    println!("{}", addition(4,5));
+    let x = String::from("hello");
+    say(x); // on peut pas doubler la fonction car on a le problem d'ownership
+    // solution 1
+    let truc = String::from("Hello world");
+    let truc1 = say2(truc);
+    let truc2 = say2(truc1);
+    println!("{}",truc2);
+    // solution 3 : Borrowing
+    let y = String::from("Test3");
+    say3(&y);
+    say3(&y);
+    let mut n = 5;
+    modification(&mut n);
+    println!("{}",n);
 }
