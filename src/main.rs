@@ -10,6 +10,9 @@ use crate::mon_module::chap40a45udemy::{addition, modification, say, say2, say3}
 
 extern crate rand;
 use rand::prelude::*;
+use crate::mon_module::choix::{choisir, Choix};
+use crate::mon_module::personne::Personne;
+
 
 fn main() {
     //Ma première variable. Udemy Chap 8.
@@ -146,4 +149,11 @@ fn main() {
 
     //Modularité. Udemy Chap 46 et 47
     println!("{}", random::<i8>());
+
+    //Les structures. Udemy Chap 48 à 50
+    let pers : Personne = Personne::new("didier".to_owned(),58);
+    println!("{:#?}", pers);
+    pers.hello();
+    let choice = Choix::Contre("pas d'accords".to_owned());
+    choisir(choice);
 }

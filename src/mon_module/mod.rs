@@ -6,3 +6,5 @@ pub mod chap28a30udemy;
 pub mod chap31a36udemy;
 pub mod chap37a39udemy;
 pub mod chap40a45udemy;
+pub mod personne;
+pub mod choix;
