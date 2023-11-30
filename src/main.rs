@@ -12,7 +12,9 @@ extern crate rand;
 use rand::prelude::*;
 use crate::mon_module::choix::{choisir, Choix};
 use crate::mon_module::personne::Personne;
-
+use std::thread;
+use std::time::Duration;
+use std::sync::*;
 
 fn main() {
     //Ma première variable. Udemy Chap 8.
@@ -156,4 +158,51 @@ fn main() {
     pers.hello();
     let choice = Choix::Contre("pas d'accords".to_owned());
     choisir(choice);
+
+    //Crash et Gestion des erreurs. 54 à 56
+    //panic!("le programme a crash");
+    //Comme Option on a un enum de Erreur qui se nome Result
+    //sinon il y a unwrap() pour un code plus claire
+    //pour l'option il faut utiliser except(str) pour des message plus personnalisé
+
+    //Les Thread. Udemy Chap 70 à 74
+    let (sender, receiver) = mpsc::channel();
+    let sender2 = mpsc::Sender::clone(&sender);
+    // est soumis a l'Ownership
+    thread::spawn(move || {
+        for i in 1..10 {
+            sender.send(i).unwrap();
+            thread::sleep(Duration::from_millis(500));
+        }
+    });
+
+    thread::spawn(move || {
+        for i in 100..110 {
+            sender2.send(i).unwrap();
+            thread::sleep(Duration::from_millis(500));
+        }
+    });
+
+
+    for recu in receiver {
+        println!("{}", recu);
+    }
+
+    let mut cpt = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..1000 {
+        let c = Arc::clone(&cpt);
+        let handler = thread::spawn(move || {
+            let mut num = c.lock().unwrap();
+            *num +=1 ;
+        });
+        handles.push(handler);
+    }
+
+    for handle in handles {
+        handle.join();
+    }
+    println!("{}", *cpt.lock().unwrap());
+    println!("fin de programme")
 }
